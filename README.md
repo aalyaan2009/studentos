@@ -68,9 +68,13 @@ The dev server prints a local URL (Vite defaults to <http://localhost:5173/stude
 
 ## Deployment
 
-`vite.config.js` sets `base: '/studentos/'` for GitHub Pages. Pushing to `main` runs
-`.github/workflows/deploy.yml`, which lints, builds, adds an SPA `404.html` fallback and publishes to
-GitHub Pages. Enable **Settings → Pages → Source: GitHub Actions** once.
+`vite.config.js` sets `base: '/studentos/'` for GitHub Pages.
+
+The quickest route is `npm run deploy`, which builds and publishes `dist/` to the `gh-pages` branch.
+
+For CI-based deploys, copy `docs/github-pages-deploy.yml.example` to `.github/workflows/deploy.yml`.
+It lints, builds, adds an SPA `404.html` fallback and publishes to GitHub Pages on every push to
+`main`; enable **Settings → Pages → Source: GitHub Actions** once.
 
 Deploying elsewhere (Vercel, Netlify, Cloudflare Pages): set `base` to `'/'`, build with
 `npm run build` and serve `dist/` with a rewrite of all routes to `index.html`.
