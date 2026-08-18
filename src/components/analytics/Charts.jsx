@@ -5,10 +5,10 @@ import { cn } from '../../utils/cn'
 export function BarChart({ data, unit = 'min', height = 168 }) {
   const max = Math.max(...data.map((entry) => entry.value), 1)
   return (
-    <div className="flex items-end gap-2" style={{ height }} role="img" aria-label="Study minutes by day">
+    <div className="flex items-stretch gap-2" style={{ height }} role="img" aria-label="Study minutes by day">
       {data.map((entry, index) => (
-        <div key={entry.label + index} className="flex flex-1 flex-col items-center gap-2">
-          <div className="flex w-full flex-1 items-end">
+        <div key={entry.label + index} className="flex h-full flex-1 flex-col items-center gap-2">
+          <div className="flex w-full min-h-0 flex-1 items-end">
             <motion.div
               initial={{ height: 0 }}
               animate={{ height: `${Math.max(4, (entry.value / max) * 100)}%` }}

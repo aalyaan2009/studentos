@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import { X } from 'lucide-react'
@@ -6,6 +7,15 @@ import { Logo } from '../ui/Logo'
 import { cn } from '../../utils/cn'
 
 export function MobileDrawer({ open, onClose }) {
+  useEffect(() => {
+    if (!open) return undefined
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [onClose, open])
+
   return (
     <AnimatePresence>
       {open ? (

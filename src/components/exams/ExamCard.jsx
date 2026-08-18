@@ -76,7 +76,7 @@ export function ExamCard({ exam, onEdit, onDelete, onProgressChange }) {
             type="range"
             min="0"
             max="100"
-            step="5"
+            step="1"
             value={exam.progress}
             onChange={(event) => onProgressChange(exam.id, Number(event.target.value))}
             className="w-full accent-cyan-400"

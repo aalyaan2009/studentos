@@ -180,7 +180,7 @@ export default function Settings() {
         onClose={() => setConfirmClear(false)}
         onConfirm={clearAllData}
         title="Clear all local data?"
-        description="Tasks, exams, subjects, notes and focus history will be removed."
+        description="Tasks, exams, subjects, notes, focus history and your preferences will be removed."
         confirmLabel="Clear data"
       />
     </div>
